@@ -21,6 +21,7 @@
   //#define MARAUDER_DEV_BOARD_PRO
   //#define XIAO_ESP32_S3
   //#define MARAUDER_REV_FEATHER
+  #define BPMCIRCUITS_FEBERIS
   //// END BOARD TARGETS
 
   #define MARAUDER_VERSION "v1.4.2"
@@ -56,6 +57,8 @@
     #define HARDWARE_NAME "XIAO ESP32 S3"
   #else
     #define HARDWARE_NAME "ESP32"
+  #elif defined(BPMCIRCUITS_FEBERIS)
+    #define HARDWARE_NAME "BPM Circuits FEBERIS"
   #endif
 
   //// END HARDWARE NAMES
@@ -74,6 +77,19 @@
     #define USE_SD
     #define HAS_TEMP_SENSOR
     #define HAS_GPS
+  #endif
+
+  #ifdef BPMCIRCUITS_FEBERIS
+  #define FLIPPER_ZERO_HAT
+  //#define HAS_BATTERY
+  #define HAS_BT
+  //#define HAS_BUTTONS
+  #define HAS_NEOPIXEL_LED
+  //#define HAS_PWR_MGMT
+  //#define HAS_SCREEN
+  //#define HAS_SD
+  //#define HAS_TEMP_SENSOR
+  //#define HAS_GPS
   #endif
 
   #ifdef MARAUDER_MINI
@@ -1195,6 +1211,9 @@
   #elif defined(XIAO_ESP32_S3)
     #define MEM_LOWER_LIM 10000
   #endif
+  #elif defined(BPMCIRCUITS_FEBERIS)
+    #define MEM_LOWER_LIM 10000
+  #endif
   //// END MEMORY LOWER LIMIT STUFF
 
   //// NEOPIXEL STUFF  
@@ -1238,9 +1257,12 @@
     #define MAX_HTML_SIZE 20000
   #elif defined(XIAO_ESP32_S3)
     #define MAX_HTML_SIZE 20000
+  #elif defined(BPMCIRCUITS_FEBERIS)
+    #define MAX_HTML_SIZE 20000
   #else
     #define MAX_HTML_SIZE 20000
   #endif
+  
   //// END EVIL PORTAL STUFF
 
   //// GPS STUFF
@@ -1290,6 +1312,12 @@
       #define GPS_TX 6
       #define GPS_RX 9
       #define mac_history_len 100
+    #endif
+    #elif defined(BPMCIRCUITS_FEBERIS)
+      #define GPS_SERIAL_INDEX 2
+      #define GPS_TX 4
+      #define GPS_RX 13
+      #define mac_history_len 512
     #endif
   #else
     #define mac_history_len 100

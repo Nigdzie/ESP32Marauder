@@ -1321,7 +1321,9 @@ void WiFiScan::RunLoadATList() {
 
 void WiFiScan::RunSaveATList(bool save_as) {
   if (save_as) {
-    sd_obj.removeFile("/Airtags_0.log");
+    #if defined(HAS_SD)
+      sd_obj.removeFile("/Airtags_0.log");
+    #endif
 
     this->startLog("Airtags");
 
@@ -1425,7 +1427,9 @@ void WiFiScan::RunLoadAPList() {
 
 void WiFiScan::RunSaveAPList(bool save_as) {
   if (save_as) {
-    sd_obj.removeFile("/APs_0.log");
+    #if defined(HAS_SD)
+      sd_obj.removeFile("/APs_0.log");
+    #endif
 
     this->startLog("APs");
 
@@ -1507,7 +1511,9 @@ void WiFiScan::RunLoadSSIDList() {
 
 void WiFiScan::RunSaveSSIDList(bool save_as) {
   if (save_as) {
-    sd_obj.removeFile("/SSIDs_0.log");
+    #if defined(HAS_SD)
+      sd_obj.removeFile("/SSIDs_0.log");
+    #endif
 
     this->startLog("SSIDs");
 
