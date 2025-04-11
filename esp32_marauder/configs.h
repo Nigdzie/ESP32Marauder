@@ -55,10 +55,10 @@
     #define HARDWARE_NAME "Flipper Zero Dev Board Pro"
   #elif defined(XIAO_ESP32_S3)
     #define HARDWARE_NAME "XIAO ESP32 S3"
-  #else
-    #define HARDWARE_NAME "ESP32"
   #elif defined(BPMCIRCUITS_FEBERIS)
     #define HARDWARE_NAME "BPM Circuits FEBERIS"
+  #else
+    #define HARDWARE_NAME "ESP32"
   #endif
 
   //// END HARDWARE NAMES
@@ -1210,7 +1210,6 @@
     #define MEM_LOWER_LIM 10000
   #elif defined(XIAO_ESP32_S3)
     #define MEM_LOWER_LIM 10000
-  #endif
   #elif defined(BPMCIRCUITS_FEBERIS)
     #define MEM_LOWER_LIM 10000
   #endif
@@ -1312,7 +1311,6 @@
       #define GPS_TX 6
       #define GPS_RX 9
       #define mac_history_len 100
-    #endif
     #elif defined(BPMCIRCUITS_FEBERIS)
       #define GPS_SERIAL_INDEX 2
       #define GPS_TX 4
